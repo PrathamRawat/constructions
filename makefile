@@ -6,3 +6,4 @@ struct.o:
 
 run:
 	./program
+	rm *.o
