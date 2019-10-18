@@ -3,8 +3,14 @@
 #include "structs.h"
 
 struct meme example(struct meme yeet) {
-	printf("Name:\t%s\tReview:\t%d", yeet.name, yeet.review); 
+	printf("Name:\t%s\tReview:\t%d\n", yeet.name, yeet.review); 
 	return yeet;
+}
+
+struct meme changeReview(struct meme *yeet, int rating) {
+	yeet->review = rating;
+	printf("Name:\t%s\tReview:\t%d\n", yeet->name, yeet->review); 
+	return *yeet;
 }
 
 int main() {
@@ -25,6 +31,8 @@ int main() {
 	};
 	foo.name = memes[rand() % 10];
 	example(foo);
+	printf("Changing Meme Review: \n");
+	changeReview(&foo, -1);
 	return 0;	
 }
 
